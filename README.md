@@ -1,0 +1,1 @@
+Javscript Ninja quiz from Sitepoint JavaScript: Novice to Nija
