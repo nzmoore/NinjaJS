@@ -1,16 +1,22 @@
-var quiz = [
-    [" What is Superman's real name?", "Clark Kent" ],
-    [" What is Wonderwoman's real name?", "Dianna Prince" ],
-    [" What is Batman's real name?", "Bruce Wayne" ]
-    ];
-    
+quiz = {
+  "name": "Super Hero Name Quiz",
+  "description": "How many super heroes can you name",
+  "question": "What is the real name of ",
+  "questions": [
+     { "question": "Superman", "answer":  "Clark Kent" },
+     { "question": "Wonderwoman", "answer":  "Dianna Prince" },
+     { "question": "Batman", "answer":  "Bruce Wayne" }
+  ]
+  }
+
+   
 var score = 0;
 
 play(quiz);
 
 function play(quiz) {
-  for ( var i = 0, question, answer, max=quiz.length; i < max; i++) {
-     question = (quiz[i][0]);    
+  for ( var i = 0, question, answer, max=quiz.questions.length; i < max; i++) {
+     question = quiz.questions[i].question;    
      answer = ask(question);
      check(answer);
      
@@ -19,11 +25,11 @@ function play(quiz) {
   gameOver();
   
   function ask(question) {
-   return prompt(question);
+   return prompt(quiz.question + question);
   }
 
   function check(answer)  {
-    if ( answer === quiz[i][1]) {
+    if ( answer === quiz.questions[i].answer) {
        score++;
     } else {
       alert("Wrong!");
